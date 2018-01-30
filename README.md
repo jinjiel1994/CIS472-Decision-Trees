@@ -1,3 +1,4 @@
 # CIS472-Decision-Trees
-Programming Homework1
-Make a decision tree 
+*Programming Homework1
+
+ Decision Trees
