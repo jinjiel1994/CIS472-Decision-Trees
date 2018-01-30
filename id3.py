@@ -135,20 +135,12 @@ def build_tree(data, varnames):
     for i in range(len(data)):
         if data[i][index] == 0:
             list = data[i]
-            del list[index]
             data0.append(list)
         else:
             list = data[i]
-            del list[index]
             data1.append(list)
 
-    # delete root from the varnames and data
-    new_varnames = []
-    for i in range(len(varnames)):
-        if i != index:
-            new_varnames.append(varnames[i])
-
-    return node.Split(varnames, index, build_tree(data0, new_varnames), build_tree(data1, new_varnames))
+    return node.Split(varnames, index, build_tree(data0, varnames), build_tree(data1, varnames))
 
 
 # "varnames" is a list of names, one for each variable
@@ -169,6 +161,7 @@ def loadAndTrain(trainS,testS,modelS):
 	# build_tree is the main function you'll have to implement, along with
     # any helper functions needed.  It should return the root node of the
     # decision tree.
+
 	root = build_tree(train, varnames)
 
 	print_model(root, modelfile)
